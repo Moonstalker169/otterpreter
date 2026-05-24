@@ -1,0 +1,28 @@
+{
+  "name": "Otterpreter 🦦",
+  "short_name": "Otterpreter",
+  "description": "Hindi-English consecutive interpretation — 1005 phrases from PM Modi speeches",
+  "start_url": "/otterpreter/",
+  "scope": "/otterpreter/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#FDF7EF",
+  "theme_color": "#6B3F1E",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "utilities"],
+  "lang": "en",
+  "dir": "ltr"
+}
