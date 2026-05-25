@@ -482,6 +482,66 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
   .app-main{padding:16px 14px 80px}
   .cards-grid{grid-template-columns:1fr}
 }
+
+/* ── SYMBOL PILLS on phrase cards ── */
+.sym-pills{display:flex;flex-wrap:wrap;gap:4px;margin-top:8px;}
+.sym-pill{display:inline-flex;align-items:center;gap:3px;padding:2px 7px 2px 5px;
+  border-radius:20px;font-size:0.72rem;font-weight:700;letter-spacing:.3px;
+  cursor:default;transition:var(--transition);border:1px solid transparent;}
+.sym-pill:hover{transform:scale(1.08);z-index:2;}
+.sym-pill .sp-sym{font-size:0.85rem;line-height:1;}
+.sym-pill .sp-name{font-size:0.68rem;opacity:.85;}
+.sym-pill.cat-relation{background:#EAF4FF;color:#1A5A9A;border-color:#B8DAFF;}
+.sym-pill.cat-logic   {background:#F0EBF8;color:#5B3BA0;border-color:#C9B8E8;}
+.sym-pill.cat-change  {background:#FFF3E0;color:#B05010;border-color:#FFD080;}
+.sym-pill.cat-quantity{background:#E8F5E9;color:#1A6B3A;border-color:#A8D5B0;}
+.sym-pill.cat-emphasis{background:#FFF0F0;color:#8B1A2E;border-color:#F5B8C0;}
+.sym-pill.cat-time    {background:#F5F0E8;color:#6B4010;border-color:#D4B880;}
+.sym-pill.cat-diplomatic{background:#E8F4F0;color:#1A6B4A;border-color:#80CCB0;}
+.sym-pill.cat-economic{background:#FEF3DC;color:#8B5010;border-color:#F0C860;}
+.sym-pill.cat-tech    {background:#E8F0F8;color:#1A3A6B;border-color:#90B8E0;}
+.sym-pill.cat-environment{background:#F0F8E8;color:#2A5A1A;border-color:#90C870;}
+.sym-pill.cat-social  {background:#F8EBF8;color:#6B1A6B;border-color:#D080D0;}
+.sym-pill.cat-notation{background:#F5F5F5;color:#4A4A4A;border-color:#C0C0C0;}
+
+/* ── SYMBOLS TAB ── */
+#symbols-panel{padding:0 0 40px;}
+.sym-header{background:linear-gradient(135deg,#3D1F0A 0%,#6B3F1E 45%,#1A5A5A 100%);
+  color:#fff;padding:24px 20px 20px;text-align:center;}
+.sym-header h2{font-size:1.4rem;font-weight:800;margin-bottom:4px;}
+.sym-header p{font-size:.85rem;opacity:.85;}
+.sym-cats{display:flex;flex-wrap:wrap;gap:8px;padding:16px 16px 8px;justify-content:center;}
+.sym-cat-btn{padding:6px 14px;border-radius:20px;border:2px solid var(--border-2);
+  background:var(--surface);font-size:.8rem;font-weight:700;cursor:pointer;
+  transition:var(--transition);color:var(--text-2);}
+.sym-cat-btn.active,.sym-cat-btn:hover{background:var(--otter);color:#fff;border-color:var(--otter);}
+.sym-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
+  gap:12px;padding:12px 16px;}
+.sym-card{background:var(--surface);border-radius:var(--radius-sm);padding:14px 12px 12px;
+  border:1.5px solid var(--border);box-shadow:var(--shadow-xs);
+  transition:var(--transition);cursor:default;display:flex;flex-direction:column;gap:6px;}
+.sym-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-sm);}
+.sym-card .sc-sym{font-size:2rem;line-height:1.1;text-align:center;padding:6px 0;}
+.sym-card .sc-name{font-size:.8rem;font-weight:800;color:var(--otter);text-align:center;}
+.sym-card .sc-meaning{font-size:.72rem;color:var(--text-2);line-height:1.4;text-align:center;}
+.sym-card .sc-ex{font-size:.68rem;color:var(--text-3);font-style:italic;text-align:center;
+  border-top:1px solid var(--border);padding-top:6px;margin-top:2px;}
+.sym-card.cat-relation{border-top:3px solid #1A5A9A;}
+.sym-card.cat-logic   {border-top:3px solid #5B3BA0;}
+.sym-card.cat-change  {border-top:3px solid #B05010;}
+.sym-card.cat-quantity{border-top:3px solid #1A6B3A;}
+.sym-card.cat-emphasis{border-top:3px solid #8B1A2E;}
+.sym-card.cat-time    {border-top:3px solid #8B6010;}
+.sym-card.cat-diplomatic{border-top:3px solid #1A6B4A;}
+.sym-card.cat-economic{border-top:3px solid #8B5010;}
+.sym-card.cat-tech    {border-top:3px solid #1A3A6B;}
+.sym-card.cat-environment{border-top:3px solid #2A5A1A;}
+.sym-card.cat-social  {border-top:3px solid #6B1A6B;}
+.sym-card.cat-notation{border-top:3px solid #4A4A4A;}
+.sym-section-label{padding:12px 16px 4px;font-size:.9rem;font-weight:800;
+  color:var(--otter);text-transform:uppercase;letter-spacing:.8px;}
+.sym-hidden{display:none;}
+
 </style>
 </head>
 <body>
@@ -512,6 +572,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
     <button class="nav-btn" onclick="switchTab('quiz',this)"><span class="nb-icon">🎯</span>Quiz</button>
     <button class="nav-btn" onclick="switchTab('reference',this)"><span class="nb-icon">📋</span>Quick Ref</button>
     <button class="nav-btn" onclick="switchTab('bookmarks',this)"><span class="nb-icon">🔖</span>Bookmarks <span class="nav-badge" id="bm-badge">0</span></button>
+    <button class="nav-btn" onclick="switchTab('symbols',this)"><span class="nb-icon">🔣</span>CI Symbols</button>
   </div>
 </nav>
 
@@ -648,6 +709,31 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
       <div class="bm-sub">Tap the 🏷️ bookmark icon on any phrase card to save it here for quick reference.</div>
     </div>
     <div class="cards-grid" id="bm-grid"></div>
+  </div>
+
+
+  <!-- SYMBOLS TAB -->
+  <div id="symbols-panel" class="tab-panel">
+    <div class="sym-header">
+      <h2>🔣 Consecutive Interpretation Symbols</h2>
+      <p>Standard CI note-taking symbols used in diplomatic, economic &amp; political interpretation</p>
+    </div>
+    <div class="sym-cats" id="sym-cats">
+      <button class="sym-cat-btn active" onclick="filterSyms('all',this)">All</button>
+      <button class="sym-cat-btn" onclick="filterSyms('relation',this)">Relations</button>
+      <button class="sym-cat-btn" onclick="filterSyms('logic',this)">Logic</button>
+      <button class="sym-cat-btn" onclick="filterSyms('change',this)">Change</button>
+      <button class="sym-cat-btn" onclick="filterSyms('quantity',this)">Quantity</button>
+      <button class="sym-cat-btn" onclick="filterSyms('emphasis',this)">Emphasis</button>
+      <button class="sym-cat-btn" onclick="filterSyms('time',this)">Time</button>
+      <button class="sym-cat-btn" onclick="filterSyms('diplomatic',this)">Diplomatic</button>
+      <button class="sym-cat-btn" onclick="filterSyms('economic',this)">Economic</button>
+      <button class="sym-cat-btn" onclick="filterSyms('tech',this)">Technology</button>
+      <button class="sym-cat-btn" onclick="filterSyms('environment',this)">Environment</button>
+      <button class="sym-cat-btn" onclick="filterSyms('social',this)">Social</button>
+      <button class="sym-cat-btn" onclick="filterSyms('notation',this)">Notation</button>
+    </div>
+    <div class="sym-grid" id="sym-grid"></div>
   </div>
 
 </main>
@@ -1626,6 +1712,7 @@ function renderCard(p, view='both') {
     ${view !== 'hindi' ? `<div class="pcard-en">${p.en}</div>` : ''}
     ${view === 'english' && p.tr ? `<div class="pcard-tr">${p.tr}</div>` : ''}
     ${p.ctx ? `<div class="pcard-ctx">${p.ctx}</div>` : ''}
+    ${symPills(p)}
     <div class="pcard-actions">
       <button class="icon-btn" onclick="toggleBM(${p.id},event)" title="Bookmark">${isBm ? '🔖' : '🏷️'}</button>
       <button class="icon-btn" onclick="toggleMa(${p.id},event)" title="Mark mastered">${isMa ? '⭐' : '☆'}</button>
@@ -1969,6 +2056,7 @@ function switchTab(tab, btn) {
   btn.classList.add('active');
   if (tab==='bookmarks') buildBM();
   if (tab==='flashcard') renderFC();
+  if (tab==='symbols') renderSymbols();
 }
 
 // ════════════════════════════════════
@@ -1978,6 +2066,221 @@ function toast(msg) {
   const t = document.getElementById('toast');
   t.textContent=msg; t.classList.add('show');
   setTimeout(()=>t.classList.remove('show'), 2500);
+}
+
+
+// ════════════════════════════════════════════════════════════
+//  CONSECUTIVE INTERPRETATION SYMBOLS DATABASE
+// ════════════════════════════════════════════════════════════
+const SYMBOLS = [
+  // ── RELATIONS & CAUSALITY ──
+  {key:'arrow_r',    sym:'→',   name:'Leads to',         meaning:'results in / causes / therefore / leads to',       cat:'relation',    ex:'bilateral talks → agreement'},
+  {key:'arrow_l',    sym:'←',   name:'Because of',       meaning:'due to / caused by / because / comes from',         cat:'relation',    ex:'growth ← investment policy'},
+  {key:'arrow_lr',   sym:'↔',   name:'Bilateral / Mutual',meaning:'mutual / bilateral / exchange / both ways',         cat:'relation',    ex:'India ↔ Japan strategic ties'},
+  {key:'plus',       sym:'+',   name:'And / Add / Also', meaning:'positive / also / and / additional / benefit',       cat:'relation',    ex:'+ jobs + investment + trade'},
+  {key:'minus',      sym:'−',   name:'Remove / Without', meaning:'negative / without / reduce / remove / against',     cat:'relation',    ex:'−  trade barriers'},
+  {key:'ampersand',  sym:'&',   name:'And / With',       meaning:'and / with / together with / along with',            cat:'relation',    ex:'India & USA & Japan Quad'},
+  {key:'slash',      sym:'/',   name:'Or / Alternative', meaning:'or / alternative / versus / option A or B',          cat:'notation',    ex:'peace / stability — India\'s choice'},
+
+  // ── LOGICAL CONNECTORS ──
+  {key:'dbl_arrow_r', sym:'⇒',  name:'Therefore / Consequently', meaning:'therefore / consequently / as a result / hence', cat:'logic', ex:'talks failed ⇒ sanctions'},
+  {key:'dbl_arrow_lr',sym:'⇔',  name:'Equivalent / i.e.',        meaning:'equivalent to / same as / that is / defined as',  cat:'logic', ex:'Vasudhaiva ⇔ One Family concept'},
+  {key:'therefore',   sym:'∴',  name:'Therefore / Thus',         meaning:'therefore / thus / so / in conclusion',            cat:'logic', ex:'∴ India supports UNSC reform'},
+  {key:'because',     sym:'∵',  name:'Because / Since',          meaning:'because / since / given that / as / owing to',     cat:'logic', ex:'∵ shared democratic values'},
+  {key:'for_all',     sym:'∀',  name:'All / Universal',          meaning:'all / every / for all / universal / each',         cat:'logic', ex:'∀ nations equal under UN Charter'},
+  {key:'exists',      sym:'∃',  name:'Some / There is',          meaning:'some / there exists / certain / particular',       cat:'logic', ex:'∃ common ground on climate'},
+  {key:'approx',      sym:'≈',  name:'Approximately',            meaning:'approximately / about / around / roughly / nearly', cat:'logic', ex:'≈ $5B bilateral trade target'},
+  {key:'neq',         sym:'≠',  name:'Not equal / Contrary',     meaning:'different / not equal / contrary / opposed to',     cat:'logic', ex:'bilateral ≠ unilateral action'},
+  {key:'equiv',       sym:'≡',  name:'Defined as / Means',       meaning:'is defined as / means / identical to / that is',   cat:'logic', ex:'Viksit Bharat ≡ India@2047'},
+  {key:'equals',      sym:'=',  name:'Equals / Same as',         meaning:'equals / same as / similar to / comparable',       cat:'logic', ex:'trust = foundation of partnership'},
+
+  // ── CHANGE & DIRECTION ──
+  {key:'arrow_u',    sym:'↑',   name:'Increase / Rise',    meaning:'rise / growth / increase / improve / strengthen',   cat:'change', ex:'↑ bilateral trade 20% YoY'},
+  {key:'arrow_d',    sym:'↓',   name:'Decrease / Fall',    meaning:'fall / decline / reduce / decrease / lower',         cat:'change', ex:'↓ poverty ↓ inequality'},
+  {key:'trend_up',   sym:'↗',   name:'Upward trend',       meaning:'long-term growth / upward trajectory / progress',    cat:'change', ex:'↗ India-US relations over decade'},
+  {key:'trend_dn',   sym:'↘',   name:'Downward trend',     meaning:'gradual decline / worsening / deterioration',        cat:'change', ex:'↘ diplomatic ties after incident'},
+  {key:'delta',      sym:'Δ',   name:'Change / Transform', meaning:'change / transformation / shift / reform / alter',   cat:'change', ex:'Δ in global order post-COVID'},
+  {key:'cycle',      sym:'↺',   name:'Repeat / Cycle',     meaning:'recurring / cycle / ongoing / repetition',           cat:'change', ex:'↺ annual bilateral review'},
+
+  // ── QUANTITY & MEASURE ──
+  {key:'sigma',      sym:'Σ',   name:'Total / Sum',        meaning:'total / sum / altogether / combined / aggregate',    cat:'quantity', ex:'Σ G20 investment pledge'},
+  {key:'percent',    sym:'%',   name:'Percentage',         meaning:'percent / proportion / share / ratio / out of',      cat:'quantity', ex:'7% GDP growth % target'},
+  {key:'greater',    sym:'>',   name:'More than',          meaning:'more than / greater than / exceeds / stronger than', cat:'quantity', ex:'> 3M Indian diaspora in US'},
+  {key:'less',       sym:'<',   name:'Less than',          meaning:'less than / fewer / below / subordinate to',         cat:'quantity', ex:'< 1.5°C warming target'},
+  {key:'x2',         sym:'×2',  name:'Double / Multiply',  meaning:'double / twice / multiply / scale up / enhance',     cat:'quantity', ex:'×2 trade target by 2030'},
+  {key:'empty',      sym:'∅',   name:'Zero / None',        meaning:'zero / nothing / absence / lack / void / nil',       cat:'quantity', ex:'∅ tolerance for terrorism'},
+  {key:'number',     sym:'#',   name:'Number / Rank',      meaning:'number / rank / position / figure / count',          cat:'quantity', ex:'#3 economy by 2028 projection'},
+  {key:'infinity',   sym:'∞',   name:'Permanent / Always', meaning:'permanent / always / forever / enduring / long-term',cat:'quantity', ex:'∞ friendship between peoples'},
+
+  // ── EMPHASIS & EVALUATION ──
+  {key:'excl',       sym:'!',   name:'Important / Key',    meaning:'important / key point / critical / emphasis / note', cat:'emphasis', ex:'! terrorism = existential threat'},
+  {key:'dbl_excl',   sym:'!!',  name:'Critical / Urgent',  meaning:'very important / critical / urgent / top priority',  cat:'emphasis', ex:'!! climate deadline: 2030 targets'},
+  {key:'check',      sym:'✓',   name:'Agree / Confirm',    meaning:'agree / yes / confirm / support / endorse / accept', cat:'emphasis', ex:'✓ India endorses UNSC reform'},
+  {key:'cross',      sym:'✗',   name:'Disagree / Reject',  meaning:'disagree / no / reject / oppose / deny / condemn',   cat:'emphasis', ex:'✗ terrorism ✗ expansionism'},
+  {key:'star',       sym:'★',   name:'Excellent / Flagship',meaning:'excellent / best / highest priority / flagship',    cat:'emphasis', ex:'★ comprehensive strategic partnership'},
+  {key:'query',      sym:'?',   name:'Uncertain / Pending',meaning:'uncertain / doubt / unclear / pending / review',     cat:'emphasis', ex:'? timeline for UNSC reform'},
+  {key:'ditto',      sym:'″',   name:'Same as above',      meaning:'same / ditto / as previously stated',                cat:'emphasis', ex:'India ″ same position on CPEC'},
+  {key:'dots',       sym:'…',   name:'Continuation / Etc.',meaning:'continuation / more / and so on / et cetera',        cat:'notation', ex:'cooperation in trade, defense…'},
+
+  // ── TIME ──
+  {key:'future',     sym:'t+',  name:'Future / Will',      meaning:'future / will / shall / upcoming / planned / next', cat:'time', ex:'t+ achieve Viksit Bharat 2047'},
+  {key:'past',       sym:'t−',  name:'Past / Was',         meaning:'past / was / previously / historical / former',     cat:'time', ex:'t− colonial legacy must end'},
+  {key:'now',        sym:'t°',  name:'Present / Now',      meaning:'now / currently / at present / today / this era',   cat:'time', ex:'t° Amrit Kaal — defining decade'},
+  {key:'soon',       sym:'t→',  name:'Soon / Imminent',    meaning:'soon / imminent / in the near future / shortly',    cat:'time', ex:'t→ FTA negotiations conclude'},
+  {key:'deadline',   sym:'⏳',  name:'Deadline / Limit',   meaning:'deadline / time limit / by when / target date',     cat:'time', ex:'⏳ 2030 net-zero milestone'},
+
+  // ── DIPLOMATIC ──
+  {key:'handshake',  sym:'🤝',  name:'Partnership / MOU',  meaning:'agreement / partnership / cooperation / MOU / treaty',          cat:'diplomatic', ex:'🤝 India-Japan 2+2 dialogue'},
+  {key:'globe',      sym:'🌐',  name:'International / Global',meaning:'international / global / world / multilateral / UN',          cat:'diplomatic', ex:'🌐 G20 New Delhi Declaration'},
+  {key:'peace',      sym:'🕊',  name:'Peace / Non-violence',meaning:'peace / harmony / non-violence / ceasefire / dialogue',         cat:'diplomatic', ex:'🕊 India calls for ceasefire in Gaza'},
+  {key:'scales',     sym:'⚖',   name:'Justice / Rule of law',meaning:'justice / law / rule of law / balance / fairness / rights',   cat:'diplomatic', ex:'⚖ rules-based international order'},
+  {key:'scroll',     sym:'📜',  name:'Treaty / Resolution', meaning:'treaty / agreement / UN resolution / declaration / joint stmt', cat:'diplomatic', ex:'📜 joint communiqué signed'},
+  {key:'plane',      sym:'✈',   name:'State Visit / Summit',meaning:'state visit / delegation / official travel / summit',          cat:'diplomatic', ex:'✈ PM Modi bilateral to Washington'},
+  {key:'flag',       sym:'⚑',   name:'Nation / State',     meaning:'nation / country / state / sovereign government',              cat:'diplomatic', ex:'⚑ India ↔ ⚑ France naval pact'},
+  {key:'institution',sym:'🏛',  name:'Institution / Body', meaning:'government / institution / parliament / ministry / UNSC',      cat:'diplomatic', ex:'🏛 UN Security Council reform'},
+  {key:'shield',     sym:'🛡',  name:'Security / Defense', meaning:'security / defense / protection / deterrence / military',       cat:'diplomatic', ex:'🛡 Quad security architecture'},
+  {key:'handshake2', sym:'🫱🤝🫲',name:'High-level meeting', meaning:'bilateral meeting / leaders\' summit / heads of state talks',  cat:'diplomatic', ex:'PM Modi meets President Biden'},
+
+  // ── ECONOMIC ──
+  {key:'money',      sym:'💰',  name:'Finance / Investment',meaning:'money / fund / investment / finance / capital / cost',         cat:'economic', ex:'💰 $75B bilateral trade 2023'},
+  {key:'chart_up',   sym:'📈',  name:'Market / GDP Growth', meaning:'economic growth / market rise / business expansion',          cat:'economic', ex:'📈 India fastest-growing G20 economy'},
+  {key:'chart_dn',   sym:'📉',  name:'Market Decline',      meaning:'recession / market fall / economic contraction / slowdown',   cat:'economic', ex:'📉 global growth headwinds'},
+  {key:'trade_cycle',sym:'🔄',  name:'Trade / Two-way',     meaning:'trade / exchange / two-way / circular / bilateral commerce',  cat:'economic', ex:'🔄 India-UAE trade $85B+'},
+  {key:'construct',  sym:'🏗',  name:'Infrastructure',      meaning:'infrastructure / development / project / construction / build',cat:'economic', ex:'🏗 PM GatiShakti corridor'},
+  {key:'stats',      sym:'📊',  name:'Data / Statistics',   meaning:'data / statistics / figures / metrics / targets / KPIs',      cat:'economic', ex:'📊 $5T economy target by 2027'},
+  {key:'factory',    sym:'🏭',  name:'Manufacturing',       meaning:'manufacturing / production / industry / factory / Make in India',cat:'economic',ex:'🏭 PLI schemes → global supply chain'},
+
+  // ── TECHNOLOGY ──
+  {key:'tech',       sym:'💻',  name:'Technology / Digital',meaning:'technology / digital / IT / software / innovation',           cat:'tech', ex:'💻 India Stack digital model'},
+  {key:'mobile',     sym:'📱',  name:'Mobile / FinTech',    meaning:'mobile / fintech / UPI / digital payment / app',              cat:'tech', ex:'📱 UPI — world\'s largest real-time payment'},
+  {key:'rocket',     sym:'🚀',  name:'Launch / Mission',    meaning:'launch / mission / initiative / breakthrough / ISRO',         cat:'tech', ex:'🚀 Chandrayaan-3 lunar south pole'},
+  {key:'science',    sym:'🔬',  name:'Research / Science',  meaning:'research / R&D / science / study / lab / innovation',         cat:'tech', ex:'🔬 India-Japan semiconductor R&D'},
+  {key:'lightning',  sym:'⚡',  name:'Energy / Fast',       meaning:'energy / electricity / power / fast / urgent / instant',      cat:'tech', ex:'⚡ 500GW renewable energy by 2030'},
+  {key:'satellite',  sym:'🛰',  name:'Space / Satellite',   meaning:'space / satellite / orbit / ISRO / space diplomacy',          cat:'tech', ex:'🛰 India-France space cooperation'},
+  {key:'ai',         sym:'🤖',  name:'AI / Automation',     meaning:'artificial intelligence / AI / automation / robotics',        cat:'tech', ex:'🤖 IndiaAI Mission'},
+
+  // ── ENVIRONMENT ──
+  {key:'leaf',       sym:'🌿',  name:'Environment / Green', meaning:'environment / green / sustainable / ecology / nature',        cat:'environment', ex:'🌿 net-zero by 2070 commitment'},
+  {key:'sun',        sym:'☀',   name:'Solar / Renewable',   meaning:'solar / renewable energy / clean energy / ISA / OSOWOG',     cat:'environment', ex:'☀ International Solar Alliance'},
+  {key:'water',      sym:'💧',  name:'Water / Ocean',       meaning:'water / ocean / rivers / conservation / WASH / blue economy', cat:'environment', ex:'💧 Jal Jeevan Mission — 200M homes'},
+  {key:'recycle',    sym:'♻',   name:'Sustainable / Circular',meaning:'sustainable / recycle / circular economy / net-zero',      cat:'environment', ex:'♻ Panchamrit climate targets'},
+  {key:'thermo',     sym:'🌡',  name:'Climate / Temperature',meaning:'climate change / global warming / temperature / COP target', cat:'environment', ex:'🌡 limit warming to 1.5°C — Paris'},
+  {key:'seedling',   sym:'🌱',  name:'Green Initiative',    meaning:'green initiative / plantation / reforestation / growth',     cat:'environment', ex:'🌱 LiFE — Lifestyle for Environment'},
+
+  // ── SOCIAL / PEOPLE ──
+  {key:'people',     sym:'👥',  name:'People / Community',  meaning:'people / community / citizens / diaspora / public / masses', cat:'social', ex:'👥 3M+ Indian diaspora in USA'},
+  {key:'edu',        sym:'🎓',  name:'Education / Skill',   meaning:'education / university / learning / skill / academic',       cat:'social', ex:'🎓 NEP 2020 / Skill India'},
+  {key:'health',     sym:'🏥',  name:'Health / Welfare',    meaning:'health / healthcare / medical / welfare / hospital',         cat:'social', ex:'🏥 Ayushman Bharat — 500M covered'},
+  {key:'farm',       sym:'🌾',  name:'Agriculture / Food',  meaning:'agriculture / farming / food security / rural / Kisan',     cat:'social', ex:'🌾 PM Kisan — direct income support'},
+  {key:'woman',      sym:'👩',  name:'Women / Gender',      meaning:'women / gender equality / empowerment / girls',              cat:'social', ex:'👩 Beti Bachao Beti Padhao'},
+  {key:'family',     sym:'👨‍👩‍👧', name:'Family / Society',   meaning:'family / society / social / community / household',         cat:'social', ex:'👨‍👩‍👧 Vasudhaiva Kutumbakam — world family'},
+
+  // ── STANDARD NOTATION ──
+  {key:'colon',      sym:':',   name:'Namely / That is',   meaning:'namely / that is / meaning / i.e. / for example',            cat:'notation', ex:'India\'s vision: Viksit Bharat 2047'},
+  {key:'bracket',    sym:'( )', name:'Parenthetical',      meaning:'aside / qualifier / context / extra info / in brackets',     cat:'notation', ex:'India (largest democracy) leads'},
+  {key:'quote',      sym:'""',  name:'Direct quote',       meaning:'direct quote / stated / said / verbatim / according to',     cat:'notation', ex:'"Vasudhaiva Kutumbakam" — Modi G20'},
+  {key:'para',       sym:'¶',   name:'New point',          meaning:'new point / next item / paragraph / agenda item',            cat:'notation', ex:'¶ 2nd: trade & investment framework'},
+  {key:'at',         sym:'@',   name:'At / Venue',         meaning:'at / location / venue / hosted at / held in',                cat:'notation', ex:'@ G20 New Delhi summit 2023'},
+  {key:'hash',       sym:'#',   name:'Number / Quantity',  meaning:'number / quantity / figure / item count',                    cat:'notation', ex:'#1 fastest-growing major economy'},
+  {key:'dashes',     sym:'—',   name:'Emphasis dash',      meaning:'emphasis / interruption / definition / break / aside',       cat:'notation', ex:'peace — non-negotiable for India'},
+];
+
+// ── Category → default symbols ──
+const CAT_SYMS = {
+  signature:   ['arrow_r','infinity','excl','globe','future'],
+  diplomatic:  ['handshake','arrow_lr','globe','scroll','plane','peace','scales'],
+  bilateral:   ['arrow_lr','handshake','arrow_r','scroll','plane','trade_cycle'],
+  trade:       ['money','arrow_lr','chart_up','trade_cycle','stats','percent'],
+  multilateral:['globe','people','handshake','sigma','therefore'],
+  governance:  ['institution','scales','arrow_r','delta','excl','check'],
+  culture:     ['people','peace','arrow_lr','infinity','plus'],
+  security:    ['shield','cross','dbl_excl','arrow_r','scales'],
+  climate:     ['leaf','thermo','dbl_excl','sun','delta','infinity'],
+  diaspora:    ['people','globe','infinity','plus','arrow_lr'],
+  vocabulary:  ['arrow_r','equals','approx','excl','query'],
+  social:      ['people','chart_up','plus','delta','edu']
+};
+
+// ── Keyword → extra symbols ──
+const KW_SYMS = [
+  {kw:['agreement','MOU','treaty','signed','resolution','declaration','pact'],  sym:'scroll'},
+  {kw:['bilateral','mutual','two-way','both','exchange'],                        sym:'arrow_lr'},
+  {kw:['visit','delegation','summit','state visit','diplomatic'],                sym:'plane'},
+  {kw:['peace','ceasefire','harmony','non-violence','Buddha','war','conflict'],  sym:'peace'},
+  {kw:['increase','rise','growth','strengthen','boost','expand'],                sym:'arrow_u'},
+  {kw:['decline','reduce','lower','decrease','fall','cut'],                      sym:'arrow_d'},
+  {kw:['terror','security','defense','protection','safety','threat'],            sym:'shield'},
+  {kw:['justice','law','rule','rights','balance','order'],                       sym:'scales'},
+  {kw:['climate','environment','green','carbon','emission','COP','Paris'],       sym:'leaf'},
+  {kw:['solar','renewable','clean energy','ISA','OSOWOG'],                       sym:'sun'},
+  {kw:['digital','technology','internet','data','cyber','AI','tech','software'], sym:'tech'},
+  {kw:['investment','billion','trade','fund','finance','capital','economy'],     sym:'money'},
+  {kw:['women','gender','girl','Beti','empowerment','female'],                  sym:'woman'},
+  {kw:['education','university','skill','learning','NEP','academic'],           sym:'edu'},
+  {kw:['health','medical','welfare','hospital','vaccine','Ayushman'],           sym:'health'},
+  {kw:['global','world','international','multilateral','UN','G20','UNGA'],      sym:'globe'},
+  {kw:['diaspora','community','citizen','public','people','masses'],            sym:'people'},
+  {kw:['2047','vision','aspire','future','next century','tomorrow'],            sym:'future'},
+  {kw:['partnership','cooperation','collaboration','together','joint'],         sym:'handshake'},
+  {kw:['space','Chandrayaan','ISRO','satellite','lunar','orbit'],               sym:'rocket'},
+  {kw:['infrastructure','GatiShakti','connectivity','road','port','rail'],      sym:'construct'},
+  {kw:['farming','agriculture','farmer','Kisan','food security','rural'],       sym:'farm'},
+  {kw:['permanent','forever','eternal','timeless','ancient','civilisation'],    sym:'infinity'},
+  {kw:['zero tolerance','condemn','oppose','reject','no room'],                 sym:'cross'},
+  {kw:['water','ocean','river','WASH','Jal','blue economy','maritime'],         sym:'water'},
+  {kw:['UPI','payment','fintech','mobile','CoWIN','digital payment'],           sym:'mobile'},
+  {kw:['Chandrayaan','ISRO','mission launch','space mission','satellite'],      sym:'satellite'},
+  {kw:['AI','artificial intelligence','automation','machine learning'],         sym:'ai'},
+];
+
+// Build symbol lookup map
+const SYM_MAP = {};
+SYMBOLS.forEach(s => SYM_MAP[s.key] = s);
+
+// Get symbols for a phrase
+function getPhraseSyms(p) {
+  const keys = new Set(CAT_SYMS[p.cat] || []);
+  const text = ((p.hi||'') + ' ' + (p.en||'') + ' ' + (p.ctx||'')).toLowerCase();
+  KW_SYMS.forEach(kw => {
+    if (kw.kw.some(w => text.includes(w.toLowerCase()))) keys.add(kw.sym);
+  });
+  // Return max 6 symbols to avoid clutter on cards
+  return [...keys].slice(0,6).map(k => SYM_MAP[k]).filter(Boolean);
+}
+
+// Render symbol pills for a phrase
+function symPills(p) {
+  const syms = getPhraseSyms(p);
+  if (!syms.length) return '';
+  const pills = syms.map(s =>
+    `<span class="sym-pill cat-${s.cat}" title="${s.meaning}">` +
+    `<span class="sp-sym">${s.sym}</span>` +
+    `<span class="sp-name">${s.name}</span></span>`
+  ).join('');
+  return `<div class="sym-pills">${pills}</div>`;
+}
+
+// ── Symbols Tab ──
+function renderSymbols() {
+  const grid = document.getElementById('sym-grid');
+  if (!grid || grid.dataset.built) return;
+  grid.dataset.built = '1';
+  grid.innerHTML = SYMBOLS.map(s =>
+    `<div class="sym-card cat-${s.cat}" data-cat="${s.cat}">
+      <div class="sc-sym">${s.sym}</div>
+      <div class="sc-name">${s.name}</div>
+      <div class="sc-meaning">${s.meaning}</div>
+      <div class="sc-ex">${s.ex}</div>
+    </div>`
+  ).join('');
+}
+
+function filterSyms(cat, btn) {
+  document.querySelectorAll('.sym-cat-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('#sym-grid .sym-card').forEach(c => {
+    c.classList.toggle('sym-hidden', cat !== 'all' && c.dataset.cat !== cat);
+  });
 }
 
 // ════════════════════════════════════
