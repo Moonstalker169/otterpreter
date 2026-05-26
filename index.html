@@ -542,6 +542,116 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
   color:var(--otter);text-transform:uppercase;letter-spacing:.8px;}
 .sym-hidden{display:none;}
 
+/* ═══════════════════════════════════════
+   REVISION NOTES
+═══════════════════════════════════════ */
+.note-dot{font-size:.85rem;margin-left:4px;}
+.pcard-noted{border-left:3px solid var(--teal)!important;}
+.pcard-note-display{background:var(--teal-pale);border-radius:8px;padding:7px 10px;
+  font-size:.78rem;color:var(--teal);margin-top:8px;line-height:1.5;white-space:pre-wrap;}
+.pcard-note-display::before{content:'📝 ';}
+.note-btn.has-note{color:var(--teal)!important;background:var(--teal-pale)!important;}
+.pcard-note-area{display:none;border-top:1.5px dashed var(--teal-pale);margin-top:10px;padding-top:10px;}
+.pcard-note-area.open{display:block;}
+.note-area-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;}
+.note-area-label{font-size:.72rem;font-weight:800;color:var(--teal);text-transform:uppercase;letter-spacing:.6px;}
+.note-close-btn{background:none;border:none;cursor:pointer;color:var(--text-3);font-size:1.1rem;padding:0 2px;line-height:1;}
+.note-textarea{width:100%;box-sizing:border-box;border:1.5px solid var(--border-2);border-radius:8px;
+  padding:8px 10px;font-size:.82rem;font-family:inherit;resize:vertical;min-height:64px;
+  outline:none;background:var(--bg);color:var(--text-1);transition:var(--transition);}
+.note-textarea:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(26,122,122,.12);}
+.note-btns{display:flex;gap:6px;margin-top:7px;}
+.note-save-btn{padding:6px 14px;background:var(--teal);color:#fff;border:none;
+  border-radius:8px;font-size:.78rem;font-weight:700;cursor:pointer;transition:var(--transition);}
+.note-save-btn:hover{background:var(--teal-mid);}
+.note-del-btn{padding:6px 12px;background:transparent;color:var(--text-3);
+  border:1px solid var(--border-2);border-radius:8px;font-size:.78rem;cursor:pointer;transition:var(--transition);}
+.note-del-btn:hover{color:var(--coral);border-color:var(--coral);}
+/* Revision panel */
+#revision-panel{padding:0 0 40px;}
+.rev-header{background:linear-gradient(135deg,#0A3D3D 0%,#1A7A7A 50%,#2E8B6A 100%);
+  color:#fff;padding:24px 20px 18px;text-align:center;}
+.rev-header h2{font-size:1.4rem;font-weight:800;margin-bottom:4px;}
+.rev-header p{font-size:.85rem;opacity:.85;margin-bottom:14px;}
+.rev-actions{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;}
+.rev-action-btn{padding:7px 16px;border-radius:20px;border:2px solid rgba(255,255,255,.4);
+  background:rgba(255,255,255,.15);color:#fff;font-size:.8rem;font-weight:700;cursor:pointer;transition:var(--transition);}
+.rev-action-btn:hover{background:rgba(255,255,255,.28);}
+.rev-empty{text-align:center;padding:60px 20px 40px;color:var(--text-3);}
+.rev-empty-icon{font-size:3rem;display:block;margin-bottom:12px;}
+.rev-empty h3{color:var(--text-2);margin-bottom:8px;}
+.rev-empty p{font-size:.88rem;line-height:1.6;max-width:320px;margin:0 auto;}
+.rev-grid{display:flex;flex-direction:column;gap:14px;padding:16px;}
+.rev-card{background:var(--surface);border-radius:var(--radius);border:1.5px solid var(--border);
+  box-shadow:var(--shadow-xs);padding:16px;border-left:4px solid var(--teal);}
+.rev-card-hi{font-size:1.1rem;font-weight:800;color:var(--otter);margin:8px 0 2px;}
+.rev-card-tr{font-size:.82rem;color:var(--text-3);font-style:italic;margin-bottom:4px;}
+.rev-card-en{font-size:.88rem;color:var(--text-2);margin-bottom:8px;}
+.rev-card-note{background:var(--teal-pale);border-radius:8px;padding:8px 12px;
+  font-size:.82rem;color:var(--teal);line-height:1.5;white-space:pre-wrap;}
+.rev-card-note::before{content:'📝 ';}
+.rev-card-meta{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap;}
+.rev-edit-btn,.rev-del-btn{padding:4px 10px;background:transparent;border:1px solid var(--border-2);
+  border-radius:6px;font-size:.72rem;cursor:pointer;color:var(--text-2);transition:var(--transition);}
+.rev-edit-btn:hover{border-color:var(--teal);color:var(--teal);}
+.rev-del-btn:hover{border-color:var(--coral);color:var(--coral);}
+
+/* ═══════════════════════════════════════
+   COMMUNITY
+═══════════════════════════════════════ */
+#community-panel{padding:0 0 40px;}
+.comm-setup-header{background:linear-gradient(135deg,#1A0A3D 0%,#3A1878 50%,#6B3F1E 100%);
+  color:#fff;padding:24px 20px 18px;text-align:center;}
+.comm-setup-header h2{font-size:1.4rem;font-weight:800;margin-bottom:4px;}
+.comm-setup-header p{font-size:.85rem;opacity:.85;}
+.comm-setup-card{padding:16px;}
+.setup-steps{display:flex;flex-direction:column;gap:12px;margin-bottom:20px;}
+.setup-step{display:flex;gap:12px;align-items:flex-start;background:var(--surface);
+  border-radius:var(--radius-sm);padding:14px;border:1.5px solid var(--border);box-shadow:var(--shadow-xs);}
+.step-num{width:28px;height:28px;border-radius:50%;background:var(--otter);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.85rem;flex-shrink:0;}
+.step-content strong{display:block;font-size:.88rem;color:var(--text-1);margin-bottom:4px;}
+.step-content p{font-size:.78rem;color:var(--text-2);line-height:1.5;margin:0;}
+.step-content a{color:var(--teal);}
+.fb-form{background:var(--surface);border-radius:var(--radius-sm);padding:16px;
+  border:1.5px solid var(--border);box-shadow:var(--shadow-xs);display:flex;flex-direction:column;gap:10px;}
+.fb-form h3{font-size:1rem;font-weight:800;color:var(--otter);margin:0;}
+.fb-input{width:100%;box-sizing:border-box;padding:9px 12px;border:1.5px solid var(--border-2);
+  border-radius:8px;font-size:.85rem;outline:none;background:var(--bg);color:var(--text-1);transition:var(--transition);}
+.fb-input:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(26,122,122,.12);}
+.fb-connect-btn{padding:10px 20px;background:linear-gradient(135deg,var(--teal) 0%,var(--teal-mid) 100%);
+  color:#fff;border:none;border-radius:10px;font-size:.9rem;font-weight:800;cursor:pointer;transition:var(--transition);}
+.fb-connect-btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(26,122,122,.3);}
+.fb-note{font-size:.75rem;color:var(--text-3);text-align:center;line-height:1.5;margin:0;}
+.comm-header{background:linear-gradient(135deg,#1A0A3D 0%,#3A1878 50%,#6B3F1E 100%);
+  color:#fff;padding:20px;text-align:center;}
+.comm-header h2{font-size:1.3rem;font-weight:800;margin-bottom:4px;}
+.comm-header p{font-size:.82rem;opacity:.85;margin-bottom:10px;}
+.comm-disc-btn{padding:6px 14px;background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.3);
+  border-radius:20px;color:#fff;font-size:.75rem;font-weight:700;cursor:pointer;transition:var(--transition);}
+.comm-nick-bar{background:var(--otter-pale);border-bottom:1px solid var(--border);padding:8px 16px;
+  font-size:.8rem;color:var(--text-2);display:flex;align-items:center;gap:8px;}
+.comm-nick-bar strong{color:var(--otter);}
+.chat-wrap{display:flex;flex-direction:column;height:480px;max-height:62vh;padding:0 12px 12px;}
+.chat-msgs{flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:8px;padding:12px 0;}
+.chat-msg{display:flex;flex-direction:column;gap:2px;max-width:85%;}
+.chat-mine{align-self:flex-end;align-items:flex-end;}
+.chat-other{align-self:flex-start;align-items:flex-start;}
+.chat-nick{font-size:.68rem;font-weight:800;color:var(--text-3);}
+.chat-text{padding:8px 12px;border-radius:12px;font-size:.85rem;line-height:1.45;}
+.chat-mine .chat-text{background:var(--teal);color:#fff;border-bottom-right-radius:3px;}
+.chat-other .chat-text{background:var(--surface-2);color:var(--text-1);border-bottom-left-radius:3px;border:1px solid var(--border);}
+.chat-time{font-size:.62rem;color:var(--text-3);}
+.chat-input-row{display:flex;gap:8px;margin-top:10px;}
+.chat-input{flex:1;padding:9px 12px;border:1.5px solid var(--border-2);border-radius:10px;
+  font-size:.85rem;outline:none;background:var(--bg);color:var(--text-1);transition:var(--transition);}
+.chat-input:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(26,122,122,.12);}
+.chat-send-btn{padding:9px 16px;background:var(--teal);color:#fff;border:none;
+  border-radius:10px;font-size:.82rem;font-weight:700;cursor:pointer;transition:var(--transition);}
+.chat-send-btn:hover{background:var(--teal-mid);}
+.chat-empty{text-align:center;padding:30px 20px;color:var(--text-3);font-size:.85rem;}
+.comm-connecting{text-align:center;padding:40px 20px;color:var(--text-2);font-size:.9rem;}
+
 </style>
 </head>
 <body>
@@ -573,6 +683,8 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
     <button class="nav-btn" onclick="switchTab('reference',this)"><span class="nb-icon">📋</span>Quick Ref</button>
     <button class="nav-btn" onclick="switchTab('bookmarks',this)"><span class="nb-icon">🔖</span>Bookmarks <span class="nav-badge" id="bm-badge">0</span></button>
     <button class="nav-btn" onclick="switchTab('symbols',this)"><span class="nb-icon">🔣</span>CI Symbols</button>
+    <button class="nav-btn" onclick="switchTab('revision',this)"><span class="nb-icon">📝</span>Revision <span class="nav-badge" id="rev-badge">0</span></button>
+    <button class="nav-btn" onclick="switchTab('community',this)"><span class="nb-icon">🌐</span>Community</button>
   </div>
 </nav>
 
@@ -734,6 +846,89 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
       <button class="sym-cat-btn" onclick="filterSyms('notation',this)">Notation</button>
     </div>
     <div class="sym-grid" id="sym-grid"></div>
+  </div>
+
+  <!-- REVISION NOTES -->
+  <div id="revision-panel" class="tab-panel">
+    <div class="rev-header">
+      <h2>📝 My Revision Notes</h2>
+      <p>Save phrases with personal notes for targeted study and review</p>
+      <div class="rev-actions">
+        <button class="rev-action-btn" onclick="exportNotes()">📤 Export Notes</button>
+        <button class="rev-action-btn" onclick="triggerImport()">📥 Import Notes</button>
+      </div>
+      <input type="file" id="import-notes-file" accept=".json" style="display:none" onchange="handleImportFile(event)">
+    </div>
+    <div class="rev-empty" id="rev-empty">
+      <span class="rev-empty-icon">🦦</span>
+      <h3>No revision notes yet</h3>
+      <p>Tap the <strong>📝</strong> button on any phrase card to add a personal note, memory hook, or tip. It will appear here for focused revision.</p>
+    </div>
+    <div class="rev-grid" id="rev-grid"></div>
+  </div>
+
+  <!-- COMMUNITY -->
+  <div id="community-panel" class="tab-panel">
+    <!-- Setup state -->
+    <div id="comm-setup">
+      <div class="comm-setup-header">
+        <h2>🌐 Interpreter Community</h2>
+        <p>Connect with fellow interpreters to share notes, tips, and live discussion</p>
+      </div>
+      <div class="comm-setup-card">
+        <div class="setup-steps">
+          <div class="setup-step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <strong>Create a free Firebase project</strong>
+              <p>Go to <a href="https://console.firebase.google.com" target="_blank">console.firebase.google.com</a> → Add project → any name (e.g. otterpreter-community) → Create project</p>
+            </div>
+          </div>
+          <div class="setup-step">
+            <div class="step-num">2</div>
+            <div class="step-content">
+              <strong>Enable Realtime Database</strong>
+              <p>In your project: Build → Realtime Database → Create Database → choose any region → <strong>Start in test mode</strong> → Enable</p>
+            </div>
+          </div>
+          <div class="setup-step">
+            <div class="step-num">3</div>
+            <div class="step-content">
+              <strong>Get your config keys</strong>
+              <p>Project Settings (⚙️) → Your apps → Add app → Web (&#60;/&#62;) → Register app → copy <code>apiKey</code>, <code>projectId</code>, and <code>databaseURL</code> from the config shown</p>
+            </div>
+          </div>
+        </div>
+        <div class="fb-form">
+          <h3>🔗 Connect Your Room</h3>
+          <input class="fb-input" id="fb-nick" placeholder="Your interpreter handle (e.g. Aisha_Delhi)" type="text" maxlength="30">
+          <input class="fb-input" id="fb-api-key" placeholder="apiKey  (from Firebase config)" type="text">
+          <input class="fb-input" id="fb-project-id" placeholder="projectId  (e.g. otterpreter-abc12)" type="text">
+          <input class="fb-input" id="fb-db-url" placeholder="databaseURL  (e.g. https://your-project-rtdb.firebaseio.com)" type="text">
+          <button class="fb-connect-btn" onclick="saveFirebaseConfig()">🔗 Connect to Community</button>
+          <p class="fb-note">📌 Share your <strong>projectId</strong> + <strong>databaseURL</strong> with other interpreters so they can join the same room.</p>
+        </div>
+      </div>
+    </div>
+    <!-- Connected state -->
+    <div id="comm-main" style="display:none">
+      <div class="comm-header">
+        <h2>🌐 Interpreter Community</h2>
+        <p id="comm-header-sub">Live interpreter discussion</p>
+        <button class="comm-disc-btn" onclick="disconnectFirebase()">🔌 Disconnect</button>
+      </div>
+      <div class="comm-nick-bar">Connected as <strong id="comm-nick-display">—</strong></div>
+      <div class="chat-wrap">
+        <div class="chat-msgs" id="chat-msgs">
+          <div class="chat-empty">Loading messages…</div>
+        </div>
+        <div class="chat-input-row">
+          <input class="chat-input" id="chat-input" placeholder="Share a tip, phrase note, or question…"
+            onkeydown="if(event.key==='Enter'&&!event.shiftKey){sendChatMsg();event.preventDefault();}">
+          <button class="chat-send-btn" onclick="sendChatMsg()">Send ↑</button>
+        </div>
+      </div>
+    </div>
   </div>
 
 </main>
@@ -1641,6 +1836,7 @@ const CATS = {
 // ════════════════════════════════════
 let bookmarks = JSON.parse(localStorage.getItem('mv_bm') || '[]');
 let mastered  = JSON.parse(localStorage.getItem('mv_ma') || '[]');
+let notes     = JSON.parse(localStorage.getItem('mv_notes') || '{}');
 let curCat = 'all';
 let fcArr = [], fcIdx = 0, fcDir = 'hindi', fcFlip = false;
 let qArr = [], qIdx = 0, qCorrect = 0, qWrong = 0, qStreak = 0;
@@ -1656,6 +1852,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initFC();
   buildRef();
   buildBM();
+  updateRevBadge();
 });
 
 function updateStats() {
@@ -1698,14 +1895,18 @@ function filterCards() {
   grid.innerHTML = filtered.map(p => renderCard(p, view)).join('');
 }
 
+function noteEsc(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+
 function renderCard(p, view='both') {
   const isBm = bookmarks.includes(p.id);
   const isMa = mastered.includes(p.id);
+  const hasNote = !!notes[p.id];
   const c = CATS[p.cat];
-  return `<div class="pcard" data-cat="${p.cat}" data-id="${p.id}">
+  return `<div class="pcard${hasNote?' pcard-noted':''}" data-cat="${p.cat}" data-id="${p.id}">
     <div class="pcard-top">
       <span class="cat-badge">${c.emoji} ${c.label}</span>
       ${isMa ? '<span title="Mastered">⭐</span>' : ''}
+      ${hasNote ? '<span class="note-dot" title="Has revision note">📝</span>' : ''}
     </div>
     ${view !== 'english' ? `<div class="pcard-hi">${p.hi}</div>` : ''}
     ${p.tr ? `<div class="pcard-tr">${p.tr}</div>` : ''}
@@ -1713,9 +1914,22 @@ function renderCard(p, view='both') {
     ${view === 'english' && p.tr ? `<div class="pcard-tr">${p.tr}</div>` : ''}
     ${p.ctx ? `<div class="pcard-ctx">${p.ctx}</div>` : ''}
     ${symPills(p)}
+    ${hasNote ? `<div class="pcard-note-display">${noteEsc(notes[p.id])}</div>` : ''}
     <div class="pcard-actions">
       <button class="icon-btn" onclick="toggleBM(${p.id},event)" title="Bookmark">${isBm ? '🔖' : '🏷️'}</button>
       <button class="icon-btn" onclick="toggleMa(${p.id},event)" title="Mark mastered">${isMa ? '⭐' : '☆'}</button>
+      <button class="icon-btn note-btn${hasNote?' has-note':''}" onclick="openNote(${p.id},event)" title="Revision note">📝</button>
+    </div>
+    <div class="pcard-note-area" id="note-area-${p.id}">
+      <div class="note-area-header">
+        <span class="note-area-label">My Revision Note</span>
+        <button class="note-close-btn" onclick="closeNote(${p.id})">✕</button>
+      </div>
+      <textarea class="note-textarea" id="note-ta-${p.id}" placeholder="Add your personal note, memory hook, or tip for this phrase…">${noteEsc(notes[p.id])}</textarea>
+      <div class="note-btns">
+        <button class="note-save-btn" onclick="saveNote(${p.id})">💾 Save Note</button>
+        <button class="note-del-btn" onclick="deleteNote(${p.id})">🗑️ Remove</button>
+      </div>
     </div>
   </div>`;
 }
@@ -2057,6 +2271,8 @@ function switchTab(tab, btn) {
   if (tab==='bookmarks') buildBM();
   if (tab==='flashcard') renderFC();
   if (tab==='symbols') renderSymbols();
+  if (tab==='revision') buildRevision();
+  if (tab==='community') initCommunity();
 }
 
 // ════════════════════════════════════
@@ -2281,6 +2497,277 @@ function filterSyms(cat, btn) {
   document.querySelectorAll('#sym-grid .sym-card').forEach(c => {
     c.classList.toggle('sym-hidden', cat !== 'all' && c.dataset.cat !== cat);
   });
+}
+
+// ════════════════════════════════════════════════════════════
+//  REVISION NOTES  (localStorage)
+// ════════════════════════════════════════════════════════════
+
+function updateRevBadge() {
+  const count = Object.keys(notes).length;
+  const badge = document.getElementById('rev-badge');
+  if (badge) badge.textContent = count;
+}
+
+function openNote(id, e) {
+  e.stopPropagation();
+  const area = document.getElementById('note-area-' + id);
+  if (!area) return;
+  if (area.classList.contains('open')) { area.classList.remove('open'); return; }
+  document.querySelectorAll('.pcard-note-area.open').forEach(a => a.classList.remove('open'));
+  area.classList.add('open');
+  const ta = area.querySelector('textarea');
+  if (ta) { ta.value = notes[id] || ''; setTimeout(() => ta.focus(), 50); }
+}
+
+function closeNote(id) {
+  document.getElementById('note-area-' + id)?.classList.remove('open');
+}
+
+function saveNote(id) {
+  const ta = document.getElementById('note-ta-' + id);
+  if (!ta) return;
+  const val = ta.value.trim();
+  if (val) { notes[id] = val; } else { delete notes[id]; }
+  localStorage.setItem('mv_notes', JSON.stringify(notes));
+  closeNote(id);
+  updateRevBadge();
+  filterCards();
+  toast(val ? '📝 Note saved to Revision!' : '🗑️ Note removed');
+}
+
+function deleteNote(id) {
+  delete notes[id];
+  localStorage.setItem('mv_notes', JSON.stringify(notes));
+  closeNote(id);
+  updateRevBadge();
+  filterCards();
+  buildRevision();
+  toast('🗑️ Note removed');
+}
+
+function buildRevision() {
+  const grid = document.getElementById('rev-grid');
+  const empty = document.getElementById('rev-empty');
+  if (!grid) return;
+  const ids = Object.keys(notes).map(Number);
+  if (!ids.length) {
+    grid.innerHTML = '';
+    if (empty) empty.style.display = 'block';
+    return;
+  }
+  if (empty) empty.style.display = 'none';
+  const revPhrases = PHRASES.filter(p => ids.includes(p.id));
+  grid.innerHTML = revPhrases.map(p => {
+    const c = CATS[p.cat];
+    return `<div class="rev-card">
+      <span class="cat-badge">${c.emoji} ${c.label}</span>
+      <div class="rev-card-hi">${p.hi}</div>
+      ${p.tr ? `<div class="rev-card-tr">${p.tr}</div>` : ''}
+      <div class="rev-card-en">${p.en}</div>
+      <div class="rev-card-note">${noteEsc(notes[p.id])}</div>
+      <div class="rev-card-meta">
+        <button class="rev-edit-btn" onclick="jumpToPhrase(${p.id})">✏️ Edit note</button>
+        <button class="rev-del-btn" onclick="deleteNote(${p.id})">🗑️ Remove</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function jumpToPhrase(id) {
+  const browseBtn = document.querySelector('.nav-btn');
+  switchTab('browse', browseBtn);
+  document.getElementById('search-input').value = '';
+  filterCards();
+  setTimeout(() => {
+    const card = document.querySelector(`.pcard[data-id="${id}"]`);
+    if (card) {
+      card.scrollIntoView({behavior:'smooth', block:'center'});
+      setTimeout(() => openNote(id, {stopPropagation:()=>{}}), 400);
+    }
+  }, 200);
+}
+
+function exportNotes() {
+  const ids = Object.keys(notes);
+  if (!ids.length) { toast('No notes to export!'); return; }
+  const data = ids.map(id => {
+    const p = PHRASES.find(x => x.id == id);
+    return {id: Number(id), hi: p?.hi, en: p?.en, note: notes[id]};
+  });
+  const blob = new Blob([JSON.stringify(data, null, 2)], {type: 'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = 'otterpreter-notes.json'; a.click();
+  URL.revokeObjectURL(url);
+  toast('📤 Notes exported!');
+}
+
+function triggerImport() {
+  document.getElementById('import-notes-file')?.click();
+}
+
+function handleImportFile(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = ev => {
+    try {
+      const data = JSON.parse(ev.target.result);
+      let count = 0;
+      data.forEach(item => { if (item.id && item.note) { notes[item.id] = item.note; count++; } });
+      localStorage.setItem('mv_notes', JSON.stringify(notes));
+      updateRevBadge();
+      buildRevision();
+      filterCards();
+      toast(`📥 Imported ${count} notes!`);
+    } catch { toast('❌ Invalid notes file'); }
+  };
+  reader.readAsText(file);
+  e.target.value = '';
+}
+
+// ════════════════════════════════════════════════════════════
+//  COMMUNITY  (Firebase Realtime Database)
+// ════════════════════════════════════════════════════════════
+
+const FB_CFG_KEY = 'mv_fb_cfg';
+const FB_NICK_KEY = 'mv_fb_nick';
+let fbApp = null, fbDB = null, fbChatRef = null;
+
+function initCommunity() {
+  const saved = localStorage.getItem(FB_CFG_KEY);
+  if (saved) {
+    try { connectFirebase(JSON.parse(saved)); return; } catch(e) { /* fall through */ }
+  }
+  showCommSetup();
+}
+
+function showCommSetup() {
+  document.getElementById('comm-setup').style.display = 'block';
+  document.getElementById('comm-main').style.display = 'none';
+}
+
+function showCommMain(nick) {
+  document.getElementById('comm-setup').style.display = 'none';
+  document.getElementById('comm-main').style.display = 'block';
+  const nd = document.getElementById('comm-nick-display');
+  if (nd) nd.textContent = nick;
+  loadChat();
+}
+
+function saveFirebaseConfig() {
+  const nick = (document.getElementById('fb-nick')?.value||'').trim() || 'Interpreter';
+  const apiKey = (document.getElementById('fb-api-key')?.value||'').trim();
+  const projectId = (document.getElementById('fb-project-id')?.value||'').trim();
+  const dbURL = (document.getElementById('fb-db-url')?.value||'').trim();
+  if (!apiKey || !projectId || !dbURL) { toast('⚠️ Please fill API key, project ID and database URL'); return; }
+  localStorage.setItem(FB_NICK_KEY, nick);
+  const cfg = {apiKey, authDomain: projectId+'.firebaseapp.com',
+    databaseURL: dbURL, projectId,
+    storageBucket: projectId+'.appspot.com', messagingSenderId:'', appId:''};
+  localStorage.setItem(FB_CFG_KEY, JSON.stringify(cfg));
+  connectFirebase(cfg);
+}
+
+function loadFBScript(src) {
+  return new Promise((res, rej) => {
+    if (document.querySelector(`script[src="${src}"]`)) { res(); return; }
+    const s = document.createElement('script');
+    s.src = src; s.onload = res; s.onerror = rej;
+    document.head.appendChild(s);
+  });
+}
+
+async function connectFirebase(cfg) {
+  const main = document.getElementById('comm-main');
+  if (main) { main.style.display = 'block'; main.innerHTML = '<div class="comm-connecting">🔄 Connecting…</div>'; }
+  document.getElementById('comm-setup').style.display = 'none';
+  try {
+    await loadFBScript('https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js');
+    await loadFBScript('https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js');
+    if (!fbApp) {
+      fbApp = firebase.initializeApp(cfg, 'otterpreter');
+      fbDB  = firebase.database(fbApp);
+    }
+    const nick = localStorage.getItem(FB_NICK_KEY) || 'Interpreter';
+    main.innerHTML = `
+      <div class="comm-header">
+        <h2>🌐 Interpreter Community</h2>
+        <p>Live interpreter discussion room</p>
+        <button class="comm-disc-btn" onclick="disconnectFirebase()">🔌 Disconnect</button>
+      </div>
+      <div class="comm-nick-bar">Connected as <strong>${escHtmlComm(nick)}</strong></div>
+      <div class="chat-wrap">
+        <div class="chat-msgs" id="chat-msgs"><div class="chat-empty">Loading messages…</div></div>
+        <div class="chat-input-row">
+          <input class="chat-input" id="chat-input" placeholder="Share a tip, phrase note, or experience…"
+            onkeydown="if(event.key==='Enter'&&!event.shiftKey){sendChatMsg();event.preventDefault();}">
+          <button class="chat-send-btn" onclick="sendChatMsg()">Send ↑</button>
+        </div>
+      </div>`;
+    loadChat();
+  } catch(err) {
+    toast('❌ Firebase error: ' + err.message);
+    localStorage.removeItem(FB_CFG_KEY);
+    showCommSetup();
+  }
+}
+
+function loadChat() {
+  if (!fbDB) return;
+  if (fbChatRef) fbChatRef.off();
+  fbChatRef = fbDB.ref('chat').limitToLast(60);
+  fbChatRef.on('value', snap => {
+    const msgs = [];
+    snap.forEach(c => msgs.push({...c.val(), key: c.key}));
+    renderChat(msgs);
+  });
+}
+
+function renderChat(msgs) {
+  const wrap = document.getElementById('chat-msgs');
+  if (!wrap) return;
+  const myNick = localStorage.getItem(FB_NICK_KEY) || 'Interpreter';
+  if (!msgs.length) { wrap.innerHTML = '<div class="chat-empty">No messages yet — say hello! 👋</div>'; return; }
+  wrap.innerHTML = msgs.map(m => {
+    const mine = m.nick === myNick;
+    return `<div class="chat-msg ${mine?'chat-mine':'chat-other'}">
+      <span class="chat-nick">${escHtmlComm(m.nick||'?')}</span>
+      <span class="chat-text">${escHtmlComm(m.text||'')}</span>
+      <span class="chat-time">${fmtTime(m.ts)}</span>
+    </div>`;
+  }).join('');
+  wrap.scrollTop = wrap.scrollHeight;
+}
+
+function sendChatMsg() {
+  if (!fbDB) return;
+  const inp = document.getElementById('chat-input');
+  const text = (inp?.value||'').trim();
+  if (!text) return;
+  const nick = localStorage.getItem(FB_NICK_KEY) || 'Interpreter';
+  fbDB.ref('chat').push({nick, text, ts: Date.now()});
+  if (inp) inp.value = '';
+}
+
+function disconnectFirebase() {
+  if (fbChatRef) { fbChatRef.off(); fbChatRef = null; }
+  fbApp = fbDB = null;
+  localStorage.removeItem(FB_CFG_KEY);
+  const main = document.getElementById('comm-main');
+  if (main) main.style.display = 'none';
+  showCommSetup();
+  toast('🔌 Disconnected from community');
+}
+
+function escHtmlComm(s) {
+  return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+function fmtTime(ts) {
+  if (!ts) return '';
+  const d = new Date(ts);
+  return d.getHours().toString().padStart(2,'0')+':'+d.getMinutes().toString().padStart(2,'0');
 }
 
 // ════════════════════════════════════
