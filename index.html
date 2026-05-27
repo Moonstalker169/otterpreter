@@ -652,6 +652,87 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
 .chat-empty{text-align:center;padding:30px 20px;color:var(--text-3);font-size:.85rem;}
 .comm-connecting{text-align:center;padding:40px 20px;color:var(--text-2);font-size:.9rem;}
 
+/* ═══════════════════════════════════════
+   ADD PHRASE MODAL
+═══════════════════════════════════════ */
+.add-phrase-row{display:flex;justify-content:flex-end;padding:4px 0 8px;}
+.add-phrase-btn{display:flex;align-items:center;gap:6px;padding:8px 16px;
+  background:linear-gradient(135deg,var(--teal),var(--emerald-light));
+  color:#fff;border:none;border-radius:20px;font-size:.82rem;font-weight:800;
+  cursor:pointer;transition:var(--transition);box-shadow:0 2px 8px rgba(26,122,122,.25);}
+.add-phrase-btn:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(26,122,122,.35);}
+.ap-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:2000;
+  align-items:flex-start;justify-content:center;padding:16px;overflow-y:auto;}
+.ap-overlay.open{display:flex;}
+.ap-modal{background:var(--surface);border-radius:var(--radius);max-width:520px;width:100%;
+  margin:auto;box-shadow:0 24px 64px rgba(0,0,0,.35);}
+.ap-head{background:linear-gradient(135deg,#0A3D3D,#1A7A7A,#2E8B6A);color:#fff;
+  padding:18px 20px;display:flex;justify-content:space-between;align-items:center;
+  border-radius:var(--radius) var(--radius) 0 0;}
+.ap-head h3{font-size:1.1rem;font-weight:800;margin:0;}
+.ap-close{background:none;border:none;color:rgba(255,255,255,.8);font-size:1.5rem;
+  cursor:pointer;padding:0;line-height:1;transition:var(--transition);}
+.ap-close:hover{color:#fff;}
+.ap-form{padding:20px;display:flex;flex-direction:column;gap:12px;}
+.ap-field{display:flex;flex-direction:column;gap:4px;}
+.ap-field label{font-size:.73rem;font-weight:800;color:var(--text-2);
+  text-transform:uppercase;letter-spacing:.6px;}
+.ap-field label span{font-weight:400;color:var(--text-3);text-transform:none;letter-spacing:0;}
+.ap-input,.ap-select,.ap-ta{width:100%;box-sizing:border-box;padding:9px 12px;
+  border:1.5px solid var(--border-2);border-radius:8px;font-size:.88rem;
+  outline:none;background:var(--bg);color:var(--text-1);font-family:inherit;transition:var(--transition);}
+.ap-input:focus,.ap-select:focus,.ap-ta:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(26,122,122,.12);}
+.ap-ta{resize:vertical;min-height:52px;}
+.ap-hi{font-size:1.15rem;}
+.ap-row{display:flex;gap:10px;}
+.ap-row .ap-field{flex:1;}
+.ap-submit-row{display:flex;gap:10px;justify-content:flex-end;margin-top:4px;}
+.ap-submit{padding:10px 22px;background:linear-gradient(135deg,var(--teal),var(--emerald-light));
+  color:#fff;border:none;border-radius:10px;font-size:.9rem;font-weight:800;
+  cursor:pointer;transition:var(--transition);}
+.ap-submit:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(26,122,122,.3);}
+.ap-cancel{padding:10px 16px;background:transparent;border:1.5px solid var(--border-2);
+  border-radius:10px;font-size:.88rem;cursor:pointer;color:var(--text-2);transition:var(--transition);}
+.ap-cancel:hover{border-color:var(--coral);color:var(--coral);}
+/* Custom phrase badges on cards */
+.custom-flag{display:inline-flex;align-items:center;gap:2px;font-size:.62rem;font-weight:800;
+  padding:2px 6px;border-radius:10px;background:var(--gold-pale);color:var(--gold);
+  border:1px solid var(--gold-light);vertical-align:middle;}
+.lang-badge{display:inline-flex;align-items:center;font-size:.62rem;font-weight:900;
+  padding:1px 5px;border-radius:8px;vertical-align:middle;margin-left:3px;}
+.lang-gu{background:#FFF3E0;color:#B05010;border:1px solid #F0C870;}
+.lang-sa{background:#F0EBF8;color:#5B3BA0;border:1px solid #C9B8E8;}
+.lang-ur{background:#FFF0F5;color:#8B1A3A;border:1px solid #F0B0C0;}
+.pcard-del-btn{padding:3px 8px;background:transparent;border:1px solid var(--border-2);
+  border-radius:6px;font-size:.7rem;cursor:pointer;color:var(--text-3);transition:var(--transition);}
+.pcard-del-btn:hover{border-color:var(--coral);color:var(--coral);}
+.pcard-edit-btn{padding:3px 8px;background:transparent;border:1px solid var(--border-2);
+  border-radius:6px;font-size:.7rem;cursor:pointer;color:var(--text-3);transition:var(--transition);}
+.pcard-edit-btn:hover{border-color:var(--teal);color:var(--teal);}
+.pcard-custom{border-left:3px solid var(--gold-light);background:linear-gradient(145deg,var(--surface),var(--gold-pale) 200%);}
+/* Community phrase suggestions */
+.comm-suggest-wrap{border-top:2px solid var(--border);margin-top:4px;}
+.comm-suggest-head{display:flex;justify-content:space-between;align-items:center;
+  padding:14px 16px 10px;cursor:pointer;}
+.comm-suggest-head h3{font-size:.95rem;font-weight:800;color:var(--otter);margin:0;}
+.comm-suggest-toggle{font-size:.8rem;color:var(--teal);}
+.comm-suggest-body{padding:0 16px 16px;display:none;}
+.comm-suggest-body.open{display:block;}
+.comm-sug-form{display:flex;flex-direction:column;gap:8px;margin-bottom:14px;}
+.comm-sug-list{display:flex;flex-direction:column;gap:10px;}
+.comm-sug-card{background:var(--surface-2);border-radius:10px;padding:12px;
+  border:1.5px solid var(--border);position:relative;}
+.comm-sug-hi{font-size:1rem;font-weight:800;color:var(--otter);}
+.comm-sug-tr{font-size:.78rem;color:var(--text-3);font-style:italic;}
+.comm-sug-en{font-size:.84rem;color:var(--text-2);margin-top:2px;}
+.comm-sug-ctx{font-size:.76rem;color:var(--text-3);margin-top:4px;font-style:italic;}
+.comm-sug-meta{display:flex;gap:8px;align-items:center;margin-top:8px;flex-wrap:wrap;}
+.comm-sug-nick{font-size:.68rem;color:var(--text-3);}
+.comm-sug-adopt{padding:4px 10px;background:var(--teal);color:#fff;border:none;
+  border-radius:6px;font-size:.72rem;font-weight:700;cursor:pointer;transition:var(--transition);}
+.comm-sug-adopt:hover{background:var(--teal-mid);}
+.sug-lang-badge{font-size:.62rem;padding:1px 5px;border-radius:8px;font-weight:800;}
+
 </style>
 </head>
 <body>
@@ -721,6 +802,9 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
         </select>
       </div>
       <div class="cat-row" id="cat-row"></div>
+      <div class="add-phrase-row">
+        <button class="add-phrase-btn" onclick="openAddPhrase()">➕ Add Phrase</button>
+      </div>
     </div>
     <div class="cards-grid" id="cards-grid"></div>
     <div class="no-results" id="no-results" style="display:none">
@@ -926,6 +1010,51 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
           <input class="chat-input" id="chat-input" placeholder="Share a tip, phrase note, or question…"
             onkeydown="if(event.key==='Enter'&&!event.shiftKey){sendChatMsg();event.preventDefault();}">
           <button class="chat-send-btn" onclick="sendChatMsg()">Send ↑</button>
+        </div>
+      </div>
+
+      <!-- COMMUNITY PHRASE SUGGESTIONS -->
+      <div class="comm-suggest-wrap">
+        <div class="comm-suggest-head" onclick="toggleSuggestWrap()">
+          <h3>💡 Phrase Suggestions from Community</h3>
+          <span class="comm-suggest-toggle" id="sug-toggle-lbl">▼ Show</span>
+        </div>
+        <div class="comm-suggest-body" id="comm-suggest-body">
+          <!-- Submit form -->
+          <div class="comm-sug-form">
+            <div style="font-size:.78rem;font-weight:800;color:var(--text-2);margin-bottom:2px;">Suggest a phrase for the community:</div>
+            <input class="ap-input" id="sug-hi" placeholder="Hindi / Gujarati / Sanskrit phrase">
+            <input class="ap-input" id="sug-tr" placeholder="Romanisation (optional)">
+            <input class="ap-input" id="sug-en" placeholder="English meaning">
+            <input class="ap-input" id="sug-ctx" placeholder="Context / when it's used (optional)">
+            <div style="display:flex;gap:8px;">
+              <select class="ap-select" id="sug-lang" style="flex:1">
+                <option value="hi">हिंदी Hindi</option>
+                <option value="gu">ગુજરાતી Gujarati</option>
+                <option value="sa">संस्कृत Sanskrit</option>
+                <option value="ur">اردو Urdu</option>
+                <option value="en">English</option>
+              </select>
+              <select class="ap-select" id="sug-cat" style="flex:2">
+                <option value="vocabulary">📖 Key Vocabulary</option>
+                <option value="signature">✨ Modi's Signatures</option>
+                <option value="diplomatic">🤝 Diplomacy & Protocol</option>
+                <option value="bilateral">🌐 Bilateral Relations</option>
+                <option value="trade">💼 Trade & Investment</option>
+                <option value="multilateral">🏛️ Multilateral Forums</option>
+                <option value="governance">⚖️ Governance</option>
+                <option value="culture">🪔 Culture & Civilisation</option>
+                <option value="security">🛡️ Security & Defence</option>
+                <option value="climate">🌿 Climate & Environment</option>
+                <option value="diaspora">🌏 Diaspora & People</option>
+                <option value="social">❤️ Health, Education & Society</option>
+              </select>
+            </div>
+            <button class="ap-submit" style="align-self:flex-end" onclick="submitPhraseSug()">📤 Submit to Community</button>
+          </div>
+          <!-- Suggestions list -->
+          <div style="font-size:.78rem;font-weight:800;color:var(--text-2);margin-bottom:8px;">Recent suggestions:</div>
+          <div class="comm-sug-list" id="comm-sug-list"><div class="chat-empty">Loading…</div></div>
         </div>
       </div>
     </div>
@@ -1834,9 +1963,10 @@ const CATS = {
 // ════════════════════════════════════
 //  STATE
 // ════════════════════════════════════
-let bookmarks = JSON.parse(localStorage.getItem('mv_bm') || '[]');
-let mastered  = JSON.parse(localStorage.getItem('mv_ma') || '[]');
-let notes     = JSON.parse(localStorage.getItem('mv_notes') || '{}');
+let bookmarks     = JSON.parse(localStorage.getItem('mv_bm') || '[]');
+let mastered      = JSON.parse(localStorage.getItem('mv_ma') || '[]');
+let notes         = JSON.parse(localStorage.getItem('mv_notes') || '{}');
+let customPhrases = JSON.parse(localStorage.getItem('mv_custom') || '[]');
 let curCat = 'all';
 let fcArr = [], fcIdx = 0, fcDir = 'hindi', fcFlip = false;
 let qArr = [], qIdx = 0, qCorrect = 0, qWrong = 0, qStreak = 0;
@@ -1883,9 +2013,10 @@ function setCat(cat) {
 function filterCards() {
   const q = document.getElementById('search-input').value.toLowerCase().trim();
   const view = document.getElementById('lang-toggle').value;
-  const filtered = PHRASES.filter(p => {
+  const allPhrases = [...PHRASES, ...customPhrases];
+  const filtered = allPhrases.filter(p => {
     const mc = curCat === 'all' || p.cat === curCat;
-    const mq = !q || p.hi.includes(q) || p.tr.toLowerCase().includes(q) || p.en.toLowerCase().includes(q) || (p.ctx||'').toLowerCase().includes(q);
+    const mq = !q || (p.hi||'').includes(q) || (p.tr||'').toLowerCase().includes(q) || (p.en||'').toLowerCase().includes(q) || (p.ctx||'').toLowerCase().includes(q);
     return mc && mq;
   });
   const grid = document.getElementById('cards-grid');
@@ -1897,20 +2028,27 @@ function filterCards() {
 
 function noteEsc(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 
+const LANG_LABELS = {hi:'हिंदी',gu:'ગુજરાતી',sa:'संस्कृत',ur:'اردو',en:'English'};
+
 function renderCard(p, view='both') {
   const isBm = bookmarks.includes(p.id);
   const isMa = mastered.includes(p.id);
   const hasNote = !!notes[p.id];
-  const c = CATS[p.cat];
-  return `<div class="pcard${hasNote?' pcard-noted':''}" data-cat="${p.cat}" data-id="${p.id}">
+  const c = CATS[p.cat] || {emoji:'📌', label:'Custom'};
+  const isCustom = p.custom === true;
+  const langBadge = (isCustom && p.lang && p.lang !== 'hi')
+    ? `<span class="lang-badge lang-${p.lang}">${LANG_LABELS[p.lang]||p.lang}</span>` : '';
+  const customBadge = isCustom ? `<span class="custom-flag">✏️ Mine</span>` : '';
+  return `<div class="pcard${hasNote?' pcard-noted':''}${isCustom?' pcard-custom':''}" data-cat="${p.cat}" data-id="${p.id}">
     <div class="pcard-top">
       <span class="cat-badge">${c.emoji} ${c.label}</span>
+      ${customBadge}${langBadge}
       ${isMa ? '<span title="Mastered">⭐</span>' : ''}
       ${hasNote ? '<span class="note-dot" title="Has revision note">📝</span>' : ''}
     </div>
-    ${view !== 'english' ? `<div class="pcard-hi">${p.hi}</div>` : ''}
+    ${view !== 'english' ? `<div class="pcard-hi">${p.hi||''}</div>` : ''}
     ${p.tr ? `<div class="pcard-tr">${p.tr}</div>` : ''}
-    ${view !== 'hindi' ? `<div class="pcard-en">${p.en}</div>` : ''}
+    ${view !== 'hindi' ? `<div class="pcard-en">${p.en||''}</div>` : ''}
     ${view === 'english' && p.tr ? `<div class="pcard-tr">${p.tr}</div>` : ''}
     ${p.ctx ? `<div class="pcard-ctx">${p.ctx}</div>` : ''}
     ${symPills(p)}
@@ -1919,6 +2057,7 @@ function renderCard(p, view='both') {
       <button class="icon-btn" onclick="toggleBM(${p.id},event)" title="Bookmark">${isBm ? '🔖' : '🏷️'}</button>
       <button class="icon-btn" onclick="toggleMa(${p.id},event)" title="Mark mastered">${isMa ? '⭐' : '☆'}</button>
       <button class="icon-btn note-btn${hasNote?' has-note':''}" onclick="openNote(${p.id},event)" title="Revision note">📝</button>
+      ${isCustom ? `<button class="icon-btn" onclick="editCustomPhrase(${p.id},event)" title="Edit phrase">✏️</button><button class="icon-btn" onclick="deleteCustomPhrase(${p.id},event)" title="Delete phrase">🗑️</button>` : ''}
     </div>
     <div class="pcard-note-area" id="note-area-${p.id}">
       <div class="note-area-header">
@@ -1957,7 +2096,7 @@ function buildBM() {
   const empty = document.getElementById('bm-empty');
   if (!bookmarks.length) { grid.innerHTML=''; empty.style.display='block'; return; }
   empty.style.display = 'none';
-  grid.innerHTML = PHRASES.filter(p => bookmarks.includes(p.id)).map(p => renderCard(p,'both')).join('');
+  grid.innerHTML = [...PHRASES, ...customPhrases].filter(p => bookmarks.includes(p.id)).map(p => renderCard(p,'both')).join('');
 }
 
 // ════════════════════════════════════
@@ -2557,7 +2696,7 @@ function buildRevision() {
     return;
   }
   if (empty) empty.style.display = 'none';
-  const revPhrases = PHRASES.filter(p => ids.includes(p.id));
+  const revPhrases = [...PHRASES, ...customPhrases].filter(p => ids.includes(p.id));
   grid.innerHTML = revPhrases.map(p => {
     const c = CATS[p.cat];
     return `<div class="rev-card">
@@ -2654,6 +2793,10 @@ function showCommMain(nick) {
   const nd = document.getElementById('comm-nick-display');
   if (nd) nd.textContent = nick;
   loadChat();
+  // If suggestion panel is already open, load suggestions now
+  suggestionsLoaded = false;
+  const sugBody = document.getElementById('comm-suggest-body');
+  if (sugBody && sugBody.classList.contains('open')) loadSuggestions();
 }
 
 function saveFirebaseConfig() {
@@ -2771,6 +2914,190 @@ function fmtTime(ts) {
 }
 
 // ════════════════════════════════════
+//  ADD / EDIT CUSTOM PHRASES
+// ════════════════════════════════════
+let editingCustomId = null; // null = new phrase, number = editing existing
+
+function openAddPhrase() {
+  editingCustomId = null;
+  document.getElementById('ap-hi').value = '';
+  document.getElementById('ap-tr').value = '';
+  document.getElementById('ap-en').value = '';
+  document.getElementById('ap-ctx').value = '';
+  document.getElementById('ap-cat').value = 'vocabulary';
+  document.getElementById('ap-lang').value = 'hi';
+  document.querySelector('.ap-head h3').textContent = '➕ Add New Phrase';
+  document.querySelector('.ap-submit').textContent = '💾 Save Phrase';
+  document.getElementById('ap-overlay').classList.add('open');
+  document.getElementById('ap-hi').focus();
+}
+
+function closeAddPhrase() {
+  document.getElementById('ap-overlay').classList.remove('open');
+  editingCustomId = null;
+}
+
+function apOverlayClick(e) {
+  if (e.target === document.getElementById('ap-overlay')) closeAddPhrase();
+}
+
+function saveCustomPhrase() {
+  const hi  = document.getElementById('ap-hi').value.trim();
+  const en  = document.getElementById('ap-en').value.trim();
+  const tr  = document.getElementById('ap-tr').value.trim();
+  const ctx = document.getElementById('ap-ctx').value.trim();
+  const cat = document.getElementById('ap-cat').value;
+  const lang= document.getElementById('ap-lang').value;
+  if (!hi && !en) { toast('⚠️ Enter at least the phrase in Hindi or English'); return; }
+  if (editingCustomId !== null) {
+    // Update existing
+    const idx = customPhrases.findIndex(p => p.id === editingCustomId);
+    if (idx !== -1) {
+      customPhrases[idx] = { ...customPhrases[idx], hi, tr, en, ctx, cat, lang };
+    }
+    toast('✏️ Phrase updated!');
+  } else {
+    // New phrase
+    const newPhrase = { id: Date.now(), custom: true, hi, tr, en, ctx, cat, lang };
+    customPhrases.push(newPhrase);
+    toast('✅ Phrase added!');
+  }
+  localStorage.setItem('mv_custom', JSON.stringify(customPhrases));
+  closeAddPhrase();
+  filterCards();
+  buildRevision();
+  buildBM();
+}
+
+function deleteCustomPhrase(id, e) {
+  if (e) e.stopPropagation();
+  if (!confirm('Delete this custom phrase?')) return;
+  customPhrases = customPhrases.filter(p => p.id !== id);
+  localStorage.setItem('mv_custom', JSON.stringify(customPhrases));
+  // Also remove any bookmark / mastered / note for it
+  bookmarks = bookmarks.filter(b => b !== id);
+  mastered  = mastered.filter(m => m !== id);
+  delete notes[id];
+  localStorage.setItem('mv_bm', JSON.stringify(bookmarks));
+  localStorage.setItem('mv_ma', JSON.stringify(mastered));
+  localStorage.setItem('mv_notes', JSON.stringify(notes));
+  filterCards(); buildBM(); buildRevision(); updateRevBadge(); updateStats();
+  toast('🗑️ Custom phrase deleted');
+}
+
+function editCustomPhrase(id, e) {
+  if (e) e.stopPropagation();
+  const p = customPhrases.find(ph => ph.id === id);
+  if (!p) return;
+  editingCustomId = id;
+  document.getElementById('ap-hi').value  = p.hi  || '';
+  document.getElementById('ap-tr').value  = p.tr  || '';
+  document.getElementById('ap-en').value  = p.en  || '';
+  document.getElementById('ap-ctx').value = p.ctx || '';
+  document.getElementById('ap-cat').value = p.cat || 'vocabulary';
+  document.getElementById('ap-lang').value= p.lang|| 'hi';
+  document.querySelector('.ap-head h3').textContent = '✏️ Edit Phrase';
+  document.querySelector('.ap-submit').textContent = '💾 Update Phrase';
+  document.getElementById('ap-overlay').classList.add('open');
+  document.getElementById('ap-hi').focus();
+}
+
+// ════════════════════════════════════
+//  COMMUNITY PHRASE SUGGESTIONS
+// ════════════════════════════════════
+let suggestionsLoaded = false;
+
+function toggleSuggestWrap() {
+  const body = document.getElementById('comm-suggest-body');
+  const lbl  = document.getElementById('sug-toggle-lbl');
+  const isOpen = body.classList.toggle('open');
+  lbl.textContent = isOpen ? '▲ Hide' : '▼ Show';
+  if (isOpen && !suggestionsLoaded) loadSuggestions();
+}
+
+function submitPhraseSug() {
+  if (!fbDB) { toast('⚠️ Not connected to community'); return; }
+  const hi  = (document.getElementById('sug-hi').value||'').trim();
+  const en  = (document.getElementById('sug-en').value||'').trim();
+  const tr  = (document.getElementById('sug-tr').value||'').trim();
+  const ctx = (document.getElementById('sug-ctx').value||'').trim();
+  const lang= document.getElementById('sug-lang').value;
+  const cat = document.getElementById('sug-cat').value;
+  const nick= localStorage.getItem(FB_NICK_KEY) || 'Anonymous';
+  if (!hi && !en) { toast('⚠️ Enter the phrase in Hindi or English'); return; }
+  const entry = { hi, tr, en, ctx, lang, cat, nick, ts: Date.now() };
+  fbDB.ref('phrase_suggestions').push(entry)
+    .then(() => {
+      document.getElementById('sug-hi').value = '';
+      document.getElementById('sug-tr').value = '';
+      document.getElementById('sug-en').value = '';
+      document.getElementById('sug-ctx').value = '';
+      toast('📤 Phrase submitted! Thank you 🙏');
+    })
+    .catch(err => toast('❌ Error: ' + err.message));
+}
+
+function loadSuggestions() {
+  if (!fbDB) {
+    document.getElementById('comm-sug-list').innerHTML = '<div class="chat-empty">Connect to community first to see suggestions.</div>';
+    return;
+  }
+  suggestionsLoaded = true;
+  fbDB.ref('phrase_suggestions').limitToLast(30).on('value', snap => {
+    const data = snap.val();
+    if (!data) {
+      document.getElementById('comm-sug-list').innerHTML = '<div class="chat-empty">No suggestions yet. Be the first!</div>';
+      return;
+    }
+    const items = Object.entries(data).reverse(); // newest first
+    renderSuggestions(items);
+  });
+}
+
+function renderSuggestions(items) {
+  const LLBL = {hi:'हिंदी',gu:'ગુ',sa:'सं',ur:'اردو',en:'EN'};
+  const LCLS  = {hi:'lang-gu',gu:'lang-gu',sa:'lang-sa',ur:'lang-ur',en:''};
+  const list = document.getElementById('comm-sug-list');
+  if (!list) return;
+  list.innerHTML = items.map(([key, s]) => {
+    const langBadge = s.lang && s.lang !== 'hi'
+      ? `<span class="sug-lang-badge lang-${s.lang}">${LLBL[s.lang]||s.lang}</span>` : '';
+    const catMeta = CATS[s.cat] ? `${CATS[s.cat].emoji} ${CATS[s.cat].label}` : s.cat;
+    return `<div class="comm-sug-card">
+      <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">
+        <span class="comm-sug-hi">${escHtmlComm(s.hi||'')}</span>
+        ${langBadge}
+        <span class="cat-badge" style="font-size:.6rem">${catMeta}</span>
+      </div>
+      ${s.tr ? `<div class="comm-sug-tr">${escHtmlComm(s.tr)}</div>` : ''}
+      ${s.en ? `<div class="comm-sug-en">${escHtmlComm(s.en)}</div>` : ''}
+      ${s.ctx ? `<div class="comm-sug-ctx">${escHtmlComm(s.ctx)}</div>` : ''}
+      <div class="comm-sug-meta">
+        <span class="comm-sug-nick">👤 ${escHtmlComm(s.nick||'Anonymous')} · ${fmtTime(s.ts)}</span>
+        <button class="comm-sug-adopt" onclick="adoptSuggestion('${key}')">➕ Add to My Phrases</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function adoptSuggestion(key) {
+  if (!fbDB) return;
+  fbDB.ref('phrase_suggestions/'+key).once('value', snap => {
+    const s = snap.val();
+    if (!s) { toast('❌ Suggestion not found'); return; }
+    const newPhrase = {
+      id: Date.now(), custom: true,
+      hi: s.hi||'', tr: s.tr||'', en: s.en||'',
+      ctx: s.ctx||'', cat: s.cat||'vocabulary', lang: s.lang||'hi'
+    };
+    customPhrases.push(newPhrase);
+    localStorage.setItem('mv_custom', JSON.stringify(customPhrases));
+    filterCards();
+    toast('✅ Added to your custom phrases!');
+  });
+}
+
+// ════════════════════════════════════
 //  GLOBAL QUICK SEARCH
 // ════════════════════════════════════
 function globalSearch(val) {
@@ -2821,5 +3148,66 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
   </script>
+
+<!-- ADD PHRASE MODAL -->
+<div class="ap-overlay" id="ap-overlay" onclick="apOverlayClick(event)">
+  <div class="ap-modal">
+    <div class="ap-head">
+      <h3>➕ Add New Phrase</h3>
+      <button class="ap-close" onclick="closeAddPhrase()">✕</button>
+    </div>
+    <div class="ap-form">
+      <div class="ap-field">
+        <label>Hindi / Gujarati / Sanskrit text <span>(required)</span></label>
+        <input class="ap-input ap-hi" id="ap-hi" placeholder="e.g. ક્ષમા વીરસ્ય ભૂષણમ્  or  वसुधैव कुटुम्बकम्" autocomplete="off">
+      </div>
+      <div class="ap-field">
+        <label>Transliteration / Romanisation</label>
+        <input class="ap-input" id="ap-tr" placeholder="e.g. Kshama Virasya Bhushanam" autocomplete="off">
+      </div>
+      <div class="ap-field">
+        <label>English meaning <span>(required)</span></label>
+        <input class="ap-input" id="ap-en" placeholder="e.g. Forgiveness is the ornament of the brave" autocomplete="off">
+      </div>
+      <div class="ap-field">
+        <label>Context / when used</label>
+        <textarea class="ap-ta" id="ap-ctx" placeholder="e.g. Used by PM at Vibrant Gujarat Summit 2024; Gujarati proverb on diplomacy"></textarea>
+      </div>
+      <div class="ap-row">
+        <div class="ap-field">
+          <label>Category</label>
+          <select class="ap-select" id="ap-cat">
+            <option value="signature">✨ Modi's Signatures</option>
+            <option value="diplomatic">🤝 Diplomacy & Protocol</option>
+            <option value="bilateral">🌐 Bilateral Relations</option>
+            <option value="trade">💼 Trade & Investment</option>
+            <option value="multilateral">🏛 Multilateral Forums</option>
+            <option value="governance">⚖️ Governance</option>
+            <option value="culture">🎭 Culture & Civilisation</option>
+            <option value="security">🛡 Security & Defence</option>
+            <option value="climate">🌿 Climate & Environment</option>
+            <option value="diaspora">🌍 Diaspora & People</option>
+            <option value="vocabulary">📖 Key Vocabulary</option>
+            <option value="social">❤️ Health, Education & Society</option>
+          </select>
+        </div>
+        <div class="ap-field">
+          <label>Language</label>
+          <select class="ap-select" id="ap-lang">
+            <option value="hi">हिंदी Hindi</option>
+            <option value="gu">ગુજરાતી Gujarati</option>
+            <option value="sa">संस्कृत Sanskrit</option>
+            <option value="ur">اردو Urdu</option>
+            <option value="en">English</option>
+          </select>
+        </div>
+      </div>
+      <div class="ap-submit-row">
+        <button class="ap-cancel" onclick="closeAddPhrase()">Cancel</button>
+        <button class="ap-submit" onclick="saveCustomPhrase()">💾 Save Phrase</button>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
 </html>
