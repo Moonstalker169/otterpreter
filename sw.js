@@ -1,5 +1,5 @@
 // Otterpreter Service Worker — offline-first caching
-const CACHE = 'otterpreter-v5';
+const CACHE = 'otterpreter-v6';
 const ASSETS = [
   '/otterpreter/',
   '/otterpreter/index.html',
